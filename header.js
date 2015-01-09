@@ -8,10 +8,8 @@ $(document).ready(function(){
 	today.getMonth();
 	today.setMOn
 	var then = new Date();
-	console.log(today.getMonth() + " " + today.getDate() + " " + today.getFullYear());
 
 	$.getJSON(url, function(data){
-			console.log("debug2");
 			for(i in data['items']){
 				item = data['items'][i];
 
@@ -29,15 +27,11 @@ $(document).ready(function(){
 				then.setMonth(month);
 				then.setFullYear(item.start.date.substring(0,4));
 
-				//console.log(then.getMonth() + " " + then.getDate() + " " + then.getFullYear() + " "+item.summary.substring(3, item.summary.length+1));
-
 				if(then.getFullYear() == today.getFullYear() && then.getDate() == today.getDate() && then.getMonth() == today.getMonth()){
-					document.getElementById("guestMessage").innerHTML += item.summary.substring(3, item.summary.length+1) + "  ";
-					console.log("it worked!");
+					document.getElementById("guestMessage").innerHTML += item.summary.substring(3, 6) + " opens at " + item.summary.substring(6, 10) + " and closes at " + item.summary.substring(13, 17) + "<br>";
 				}
 
 			}
-			console.log("debug3");
 		
 	});
 });
