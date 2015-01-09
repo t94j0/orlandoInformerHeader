@@ -27,11 +27,12 @@ $(document).ready(function(){
 				then.setMonth(month);
 				then.setFullYear(item.start.date.substring(0,4));
 
-				console.log(then.getDate() + " " + then.getMonth() + " " + then.getFullYear() + " "+item.summary.substring(3, item.summary.length+1));
+				//console.log(then.getDate() + " " + then.getMonth() + " " + then.getFullYear() + " "+item.summary.substring(3, item.summary.length+1));
 
 
-				if(then.getFullYear() == today.getFullYear() && then.getDate() == today.getDate() && then.getMonth() == today.getMonth()){
-					$("#guestMessage").append(item.summary.substring(3, item.substring.summary.length));
+				if(then.getFullYear() == today.getFullYear() || then.getDate() == today.getDate() || then.getMonth() == today.getMonth()){
+					//$("#guestMessage").append(item.summary.substring(3, item.substring.summary.length));
+					console.log("it worked!");
 				}
 
 			}
