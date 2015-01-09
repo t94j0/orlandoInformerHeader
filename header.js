@@ -8,7 +8,6 @@ $(document).ready(function(){
 	today.getMonth();
 	today.setMOn
 	var then = new Date();
-	document.getElementById("guestMessage").innerHTML += "hey";
 	console.log(today.getMonth() + " " + today.getDate() + " " + today.getFullYear());
 
 	$.getJSON(url, function(data){
@@ -33,7 +32,7 @@ $(document).ready(function(){
 				//console.log(then.getMonth() + " " + then.getDate() + " " + then.getFullYear() + " "+item.summary.substring(3, item.summary.length+1));
 
 				if(then.getFullYear() == today.getFullYear() && then.getDate() == today.getDate() && then.getMonth() == today.getMonth()){
-					document.getElementById("guestMessage").innerHTML = item.summary.substring(3, item.substring.summary.length);
+					document.getElementById("guestMessage").innerHTML += item.summary.substring(3, item.summary.length+1) + "  ";
 					console.log("it worked!");
 				}
 
