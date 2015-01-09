@@ -5,8 +5,11 @@ $(document).ready(function(){
 	today.getDate();
 	today.getDay();
 	today.getYear();
+	today.getMonth();
+	today.setMOn
 	var then = new Date();
-	console.log("debug1");
+	document.getElementById("guestMessage").innerHTML += "hey";
+	console.log(today.getMonth() + " " + today.getDate() + " " + today.getFullYear());
 
 	$.getJSON(url, function(data){
 			console.log("debug2");
@@ -21,17 +24,16 @@ $(document).ready(function(){
 				if(parseInt(month.substring(0,1)) == 0){
 					month = month.substring(1,2);
 				}
-
+				month--;
 
 				then.setDate(day);
 				then.setMonth(month);
 				then.setFullYear(item.start.date.substring(0,4));
 
-				//console.log(then.getDate() + " " + then.getMonth() + " " + then.getFullYear() + " "+item.summary.substring(3, item.summary.length+1));
+				//console.log(then.getMonth() + " " + then.getDate() + " " + then.getFullYear() + " "+item.summary.substring(3, item.summary.length+1));
 
-
-				if(then.getFullYear() == today.getFullYear() || then.getDate() == today.getDate() || then.getMonth() == today.getMonth()){
-					//$("#guestMessage").append(item.summary.substring(3, item.substring.summary.length));
+				if(then.getFullYear() == today.getFullYear() && then.getDate() == today.getDate() && then.getMonth() == today.getMonth()){
+					document.getElementById("guestMessage").innerHTML = item.summary.substring(3, item.substring.summary.length);
 					console.log("it worked!");
 				}
 
